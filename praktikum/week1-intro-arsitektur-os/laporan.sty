@@ -1,0 +1,114 @@
+1. Monolithic Kernel
+Deskripsi:
+•	Semua komponen sistem operasi (seperti manajemen memori, file system, device driver, dll) berjalan dalam satu ruang kernel.
+•	Semua modul berkomunikasi langsung satu sama lain.
+Karakteristik:
+•	Performa tinggi karena tidak ada overhead komunikasi antar proses.
+•	Lebih kompleks dan sulit dirawat karena semua kode saling tergantung.
+•	Crash di satu modul bisa menyebabkan sistem keseluruhan gagal.
+Contoh OS:
+•	Linux
+•	Unix tradisional
+Kelebihan:
+•	Kecepatan tinggi karena minimnya batas komunikasi antar komponen.
+Kekurangan:
+•	Kurang stabil dan rentan terhadap bug atau crash sistem.
+________________________________________
+2. Microkernel
+Deskripsi:
+•	Hanya fungsi-fungsi inti sistem operasi dijalankan di ruang kernel (seperti manajemen memori dasar, scheduling, dan komunikasi antar proses).
+•	Komponen lainnya (seperti device drivers, file system, network stack) berjalan di user space.
+Karakteristik:
+•	Lebih stabil dan aman, karena error pada modul tidak langsung merusak kernel.
+•	Komunikasi antar komponen dilakukan melalui message passing (IPC), menambah overhead.
+Contoh OS:
+•	Minix
+•	QNX
+•	L4 Microkernel
+•	(Sebagian desain Windows NT menggunakan pendekatan mirip microkernel)
+Kelebihan:
+•	Lebih aman dan mudah dikembangkan secara modular.
+Kekurangan:
+•	Performa bisa lebih lambat karena banyaknya komunikasi antar proses.
+________________________________________
+3. Layered Architecture
+Deskripsi:
+•	Sistem operasi dibangun dalam bentuk lapisan-lapisan hierarkis, di mana setiap lapisan hanya berinteraksi dengan lapisan di atas dan di bawahnya.
+Karakteristik:
+•	Struktur modular, memudahkan debugging dan pengembangan.
+•	Implementasi dan interaksi antar lapisan lebih terkontrol.
+Contoh OS:
+•	THE Operating System (oleh E.W. Dijkstra)
+•	Sebagian konsep ini juga diterapkan dalam beberapa sistem Unix.
+Kelebihan:
+•	Desain yang bersih dan terstruktur.
+•	Mudah dipahami dan diuji secara per lapisan.
+Kekurangan:
+•	Bisa jadi kurang efisien karena harus melalui beberapa lapisan untuk melakukan suatu tugas.
+
+
+
+
+
+1. Monolithic Kernel
+Ciri: Semua komponen sistem (device driver, file system, manajemen memori, dll) berada di satu ruang kernel.
+Contoh OS:
+•	Linux → semua komponen utama berjalan di kernel space.
+•	UNIX (versi lama seperti System V, BSD) → klasik monolithic kernel.
+•	MS-DOS → sangat sederhana dan semua fungsi sistem berjalan bersama dalam satu ruang.
+•	FreeBSD, OpenBSD → juga berbasis kernel monolitik.
+Catatan:
+→ Beberapa OS modern seperti Linux memiliki modul loadable (modular monolithic), tapi tetap dianggap monolithic kernel karena modul dijalankan di kernel space.
+________________________________________
+ 2. Microkernel
+Ciri: Kernel hanya berisi fungsi dasar (manajemen memori, penjadwalan, IPC). Layanan lain berjalan di user space.
+Contoh OS:
+•	MINIX → contoh klasik dan pendidikan untuk microkernel.
+•	QNX → microkernel komersial, sering digunakan di sistem tertanam (mobil, robot, dll).
+•	Mach → basis untuk NeXTSTEP, dan kemudian digunakan dalam macOS & iOS (sebagai hybrid).
+•	L4 Family (Fiasco, seL4, L4Ka::Pistachio) → generasi baru microkernel yang efisien.
+________________________________________
+3. Layered Architecture
+Ciri: Sistem dibagi menjadi beberapa lapisan (layer) dengan tanggung jawab spesifik; tiap lapisan hanya berinteraksi dengan lapisan di atas dan di bawahnya.
+Contoh OS:
+•	THE Operating System (oleh Dijkstra, 1960-an) → contoh klasik sistem berlapis.
+•	OS/2 → memiliki arsitektur berlapis untuk modularitas.
+•	Windows NT → menggabungkan pendekatan layered + hybrid kernel.
+•	Multics → sistem operasi awal yang menggunakan konsep berlapis.
+
+
+A. Monolithic Kernel
+Kelebihan:
+•	Performa tinggi (karena semua komponen langsung berinteraksi di kernel space).
+•	Akses cepat ke hardware.
+Kelemahan:
+•	Kurang aman: bug di satu modul bisa membuat seluruh sistem crash.
+•	Sulit diperbarui tanpa reboot.
+Relevansi Modern:
+Masih relevan, terutama pada sistem yang membutuhkan kinerja tinggi dan stabil (misalnya Linux Server).
+Namun, biasanya digunakan dalam bentuk modular monolithic (modul bisa dimuat dan dilepas secara dinamis).
+ Contoh:
+Linux, Android (berbasis kernel Linux).
+
+B. Microkernel
+Kelebihan:
+•	Stabil dan aman, karena sebagian besar layanan berjalan di user space.
+•	Mudah dikembangkan dan diperbarui tanpa merusak kernel.
+Kelemahan:
+•	Overhead komunikasi antar proses (IPC) membuat performa lebih lambat.
+•	Implementasi lebih kompleks.
+Relevansi Modern:
+Microkernel sangat relevan untuk sistem tertanam (embedded), IoT, dan sistem real-time, di mana keandalan dan keamanan lebih penting daripada kecepatan.
+ Contoh:  QNX (mobil, robotik), seL4 (militer dan sistem keamanan tinggi).
+C. Layered Architecture
+Kelebihan:
+•	Struktur jelas, mudah dikembangkan dan diuji.
+•	Cocok untuk sistem besar yang kompleks.
+Kelemahan:
+•	Kurang efisien karena harus melewati banyak lapisan.
+•	Tidak fleksibel jika interaksi antar layer terlalu kaku.
+Relevansi Modern:
+Model ini tetap relevan secara konseptual, terutama sebagai pendekatan desain dalam OS modern seperti Windows NT, tetapi tidak digunakan secara murni.
+Contoh:
+Windows NT menggunakan model berlapis dan hybrid.
+
