@@ -1,0 +1,64 @@
+1. Monolithic Kernel
+Pengertian:
+Struktur kernel di mana semua layanan sistem operasi (manajemen memori, proses, file system, device driver, dll.) berjalan dalam mode kernel (satu ruang memori besar).
+Ciri-ciri:
+•	Semua komponen berada dalam satu kesatuan.
+•	Kinerja tinggi karena komunikasi antar komponen cepat (langsung).
+•	Sulit untuk dikembangkan dan diuji karena perubahan satu bagian dapat mempengaruhi seluruh sistem.
+Contoh: Linux, UNIX tradisional.
+________________________________________
+🔹 2. Microkernel
+Pengertian:
+Struktur kernel yang memisahkan fungsi inti (minimal) dari layanan lain. Hanya fungsi dasar (seperti manajemen memori, IPC, dan penjadwalan) yang berjalan di kernel, sementara layanan lainnya berjalan di ruang pengguna.
+Ciri-ciri:
+•	Lebih modular dan aman.
+•	Mudah dikembangkan dan diperbaiki karena setiap layanan terpisah.
+•	Komunikasi antarkomponen (via IPC) lebih lambat dibanding monolithic.
+Contoh: Minix, QNX, sebagian versi Windows NT.
+________________________________________
+🔹 3. Layered Architecture
+Pengertian:
+Struktur sistem operasi yang dibangun dalam bentuk lapisan-lapisan, di mana setiap lapisan hanya berinteraksi dengan lapisan di atas dan di bawahnya.
+Ciri-ciri:
+•	Memiliki struktur yang jelas dan terorganisasi.
+•	Mudah dipelihara dan diuji.
+•	Performa bisa sedikit lebih rendah karena overhead dari komunikasi antar lapisan.
+Contoh: THE Operating System, sebagian konsep pada sistem seperti OS/2.
+
+
+
+Berikut ringkasan beserta contoh nyata OS  [system opersi] yang menggunakan Monolithic karnel, Microkernel, dan Layered Archtecture:
+1. Monolithic Kernel
+Model ini memiliki seluruh komponen sistem (manajemen memori, sistem file, driver, dll) berjalan di ruang kernel.
+🔹 Contoh OS:
+•	Linux (Debian, Ubuntu, Fedora, dll)
+•	MS-DOS
+•	Unix klasik (Seperti UNIX System V)
+________________________________________
+2. Microkernel
+Model ini meminimalisir fungsi kernel dan memindahkan sebagian besar layanan (seperti device driver, file system) ke user space.
+🔹 Contoh OS:
+•	Minix
+•	QNX
+•	GNU Hurd
+•	L4 Microkernel family
+________________________________________
+3. Hybrid Kernel
+Gabungan antara monolithic dan microkernel. Inti sistem tetap monolithic tapi dengan pemisahan modul tertentu untuk efisiensi dan fleksibilitas.
+🔹 Contoh OS:
+•	Windows NT dan turunannya (Windows 10, 11)
+•	macOS (berbasis XNU kernel)
+•	iOS
+•	Modern Linux (beberapa menyebutnya semi-modular atau hybrid karena dukungan loadable modules)
+
+
+Berikut ringkasan analisis mengenai model karnel mana yang paling relevan untuk system modern:
+•  Monolithic Kernel
+•	Kelebihan: Performa tinggi karena komunikasi antar komponen cepat.
+•	Kekurangan: Stabilitas dan keamanan bisa terganggu karena bug di satu komponen bisa merusak seluruh sistem.
+•  Microkernel
+•	Kelebihan: Keamanan dan stabilitas tinggi. Jika satu layanan gagal, sistem tetap stabil.
+•	Kekurangan: Overhead komunikasi tinggi, kinerja lebih rendah dibanding monolithic kernel.
+•  Hybrid Kernel
+•	Kelebihan: Performa relatif tinggi dengan stabilitas dan keamanan lebih baik daripada kernel monolitik murni.
+•	Kekurangan: Kompleksitas desain tinggi.
