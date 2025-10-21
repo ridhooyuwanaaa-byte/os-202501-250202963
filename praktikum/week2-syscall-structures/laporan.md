@@ -43,7 +43,7 @@ dmesg | head
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/screenshotnopalstracels2.png)
+![Screenshot hasil](screenshots/Screenshotnopalstracels2.png)
 
 ---
 
