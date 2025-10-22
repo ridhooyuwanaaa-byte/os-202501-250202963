@@ -85,7 +85,7 @@ Sertakan screenshot hasil percobaan atau diagram:
 ![Screenshot hasil](screenshots/Screenshotnopalstracels2.png)
 ![Screenshot hasil](screenshots/Screenshotnopalsudoapt.png)
 ![Screenshot hasil](screenshots/Screenshotnopalsudoaptbagian2.png)
-![Screenshot hasil](screenshots/Screenshotnopalubuntu.png)
+![Screenshot hasil](screenshots/ScreenshotUbuntu.png)
 ![Screenshot hasil](screenshots/ScreenshotDiagramweek2.png)
 ![Screenshot hasil](screenshots/Screnshotnopaldmseg.png)
 
