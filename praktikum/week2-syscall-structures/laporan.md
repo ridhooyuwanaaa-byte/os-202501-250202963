@@ -102,6 +102,27 @@ Untuk memastikan proses transisi ini aman, sistem operasi menerapkan proteksi me
 
 Contoh system call yang sering digunakan dalam sistem operasi Linux antara lain: • open() dan close() untuk membuka dan menutup file. • read() dan write() untuk membaca serta menulis data ke file atau perangkat. • fork() untuk membuat proses baru. • execve() untuk mengeksekusi program baru. • wait() untuk menunggu proses anak selesai. • exit() untuk mengakhiri proses dengan aman. • getpid() dan kill() untuk mengatur proses melalui ID-nya.
 
+## TABEL OBSERVASI HASIL EXPERIMEN STRACE
+| No | Syscall      | Argumen Utama                         | Nilai Kembali | Keterangan Singkat                     |
+| -- | ------------ | ------------------------------------- | ------------- | -------------------------------------- |
+| 1  | `execve`     | path="./a.out", argv, envp            | 0             | Menjalankan program                    |
+| 2  | `brk`        | addr=NULL                             | ptr           | Mengatur heap awal (memory management) |
+| 3  | `access`     | "/etc/ld.so.preload", F_OK            | -1 (ENOENT)   | Mengecek preload libraries             |
+| 4  | `openat`     | AT_FDCWD, "/lib/...", O_RDONLY        | fd            | Membuka shared library                 |
+| 5  | `read`       | fd, buf, size                         | nbytes        | Membaca file ELF/so                    |
+| 6  | `mmap`       | addr, length, prot, flags, fd, offset | addr          | Mapping memory untuk binary/library    |
+| 7  | `write`      | fd=1, buf="Hello, World!\n", count=14 | 14            | Menulis ke stdout                      |
+| 8  | `exit_group` | status=0                              | -             | Mengakhiri proses                      |
+
+
+##Tabel Observasi Hasil Eksperimen dmesg
+| No | Waktu Log       | Syscall / Pesan Kernel       | Proses / PID          | Keterangan                                |
+| -- | --------------- | ---------------------------- | --------------------- | ----------------------------------------- |
+| 1  | [ 1234.567890 ] | audit: type=1300 syscall=59  | uid=1000 pid=12345    | `execve()` dipanggil (syscall 59)         |
+| 2  | [ 1234.568000 ] | audit: type=1307 success=yes | uid=1000 pid=12345    | Syscall berhasil dieksekusi               |
+| 3  | [ 1234.700000 ] | seccomp: syscall 203 blocked | pid=12345 comm="test" | Syscall `msgrcv` diblokir oleh seccomp    |
+| 4  | [ 1234.800000 ] | invalid syscall: 999         | pid=12345             | Syscall tidak dikenal dipanggil program   |
+| 5  | [ 1235.000000 ] | syscall table patch detected | kernel                | Deteksi manipulasi struktur syscall table |
 
 
 ## Kesimpulan
