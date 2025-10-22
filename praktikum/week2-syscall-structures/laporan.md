@@ -81,6 +81,12 @@ dmesg | head
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
+![Screenshot hasil](screenshots/Screenshotnopalstracels.png)
+![Screenshot hasil](screenshots/Screenshotnopalstracels2.png)
+![Screenshot hasil](screenshots/Screenshotnopalsudoapt.png)
+![Screenshot hasil](screenshots/Screenshotnopalsudoaptbagian2.png)
+![Screenshot hasil](screenshots/Screenshotnopalubuntu.png)
+![Screenshot hasil](screenshots/ScreenshotnopalDiagramweek2.png)
 ![Screenshot hasil](screenshots/Screenshotnopalstracels2.png)
 
 ---
