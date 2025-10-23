@@ -43,7 +43,8 @@ dmesg | head
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+
+<img width="777" height="477" alt="nopal week 3" src="https://github.com/user-attachments/assets/8963c6d7-87e5-466a-bb6c-bd57b3cb2ad5" />
 
 ---
 
