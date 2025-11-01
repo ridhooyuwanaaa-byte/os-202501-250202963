@@ -6,7 +6,7 @@ Topik: Manajemen Proses dan User di Linux
 ## Identitas
 - **Nama**  : Naufal Adib Bissibyan 
 - **NIM**   : 250202958  
-- **Kelas** : 1 IKR A
+- **Kelas** : 1 IKRA
 
 ---
 
@@ -105,8 +105,8 @@ dmesg | head
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/Screesnshotweek4_1.png) 
-![Screenshot hasil](screenshots/Screesnshotweek4_2.png)
+![Screenshot hasil](screenshots/Screenshotweek4_1.png) 
+![Screenshot hasil](screenshots/Screenshotweek4_2.png)
 
 ---
 
