@@ -1,5 +1,5 @@
 
-# Laporan Praktikum Minggu [X]
+# Laporan Praktikum Minggu [4]
 Topik: Manajemen Proses dan User di Linux
 
 
@@ -105,7 +105,8 @@ dmesg | head
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![Screenshot hasil](screenshots/Screesnshotweek4_1.png) 
+![Screenshot hasil](screenshots/Screesnshotweek4_2.png)
 
 ---
 
