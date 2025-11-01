@@ -108,9 +108,116 @@ Sertakan screenshot hasil percobaan atau diagram:
 ![Screenshot hasil](screenshots/Screenshotweek4_1.png) 
 ![Screenshot hasil](screenshots/Screenshotweek4_2.png)
 
+---
+## EKSPERIMEN 1
+whoami → menampilkan nama user yang sedang login.
+Output: nopalalala
+➜ Artinya user aktif saat ini bernama nopalalala.
+
+id → menampilkan ID user (UID), group ID (GID), dan keanggotaan grup.
+Output:
+uid=1000(nopalalala) gid=1000(nopalalala) groups=1000(nopalalala),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+➜ Menunjukkan bahwa user ini punya hak sudo (administrator).
+
+groups → menampilkan daftar grup yang diikuti user.
+Output: nopalalala adm cdrom sudo dip plugdev users
+
+sudo adduser praktikan → membuat user baru bernama praktikan.
+Sistem otomatis membuat direktori home /home/praktikan dan grup praktikan (1001).
+
+sudo passwd praktikan → memberi/mengubah password user praktikan.
+
+📘 Kesimpulan Eksperimen 1:
+User baru praktikan berhasil dibuat dan tergabung dalam grup users.
 
 ---
+## EKSPERIMEN 2
 
+# ps aux
+
+Menampilkan semua proses yang sedang berjalan di sistem (a = all, u = user format, x = termasuk proses tanpa terminal).
+| head -10 hanya menampilkan 10 baris pertama.
+
+Kolom penting:
+Kolom	Arti
+USER	User pemilik proses
+PID	Process ID, identitas unik tiap proses
+%CPU	Persentase penggunaan CPU oleh proses
+%MEM	Persentase penggunaan memori oleh proses
+VSZ	Virtual memory size (dalam KB)
+RSS	Memori fisik yang digunakan (KB)
+TTY	Terminal terkait proses
+STAT	Status proses (S = sleep, R = running, Z = zombie, dsb.)
+START	Waktu proses dimulai
+TIME	Total waktu CPU yang digunakan
+COMMAND	Perintah yang menjalankan proses
+
+# top -n 1
+
+Menampilkan proses berjalan secara dinamis (seperti Task Manager), tetapi hanya 1 siklus pembaruan (-n 1).
+
+Baris paling atas menunjukkan:
+
+Load average: rata-rata beban CPU.
+
+Tasks: jumlah proses aktif.
+
+%Cpu(s): penggunaan CPU per jenis (user/system/idle).
+
+MiB Mem/Swap: pemakaian memori dan swap.
+
+ Kesimpulan Eksperimen 2:
+Perintah ps aux dan top digunakan untuk memantau proses dan sumber daya sistem secara rinci.
+
+## EKSPERIMEN 3
+
+# sleep 1000 & → Menjalankan perintah sleep di background selama 1000 detik.
+Tanda & berarti proses dijalankan di background (tidak menghalangi terminal).
+Output [1] 667 menunjukkan job number dan PID (dalam contoh: PID = 667).
+
+ps aux | grep sleep → Mencari proses sleep yang sedang aktif.
+
+kill <PID> → Menghentikan proses dengan PID tertentu.
+Misalnya, kill 667 untuk menghentikan proses sleep dengan PID 667.
+ Catat PID proses sleep:
+Pada tangkapan layar kamu, PID-nya adalah 667.
+
+Kesimpulan Eksperimen 3:
+Kamu berhasil membuat proses sleep di background dan memverifikasi/menutupnya menggunakan ps dan kill.
+
+## EKSPERIMEN 4
+
+# pstree -p → Menampilkan pohon proses (process tree) lengkap dengan PID-nya.
+Menunjukkan hubungan induk–anak antar proses.
+
+Contoh hasil (dari tangkapan layar):
+
+systemd(1)─┬─agetty(1873)
+            ├─dbus-daemon(162)
+            ├─init─┬─login(291)
+            │       └─bash(538)───head(617)
+            ├─systemd-udevd(99)
+            └─wsl-pro-service(198)
+
+
+Identifikasi proses induk:
+
+Proses tertinggi (paling atas) adalah systemd (PID 1), yaitu init process — induk dari semua proses lain di sistem Linux.
+
+Semua proses lain (seperti bash, cron, dbus-daemon, dll.) merupakan turunan dari systemd.
+
+Kesimpulan Eksperimen 4:
+systemd adalah proses induk dari semua proses di sistem Linux. Dengan pstree, kamu bisa melihat struktur dan hubungan antar proses secara hierarkis.
+
+---
+## TUGAS
+
+
+
+
+
+
+---
 ## Analisis
 Dari hasil percobaan yang telah dilakukan, dapat dipahami bahwa setiap aktivitas di sistem operasi Linux dijalankan sebagai suatu proses yang memiliki identitas unik berupa PID (Process ID). Melalui perintah seperti ps, top, dan pstree, pengguna dapat memantau status, hierarki, serta penggunaan sumber daya dari setiap proses yang berjalan. Selain itu, dengan perintah sleep dan kill, pengguna juga dapat membuat, memantau, atau menghentikan proses secara langsung. Hasil ini menunjukkan bahwa Linux memiliki sistem multitasking yang efisien dan terstruktur, di mana setiap proses dapat dijalankan secara paralel tanpa saling mengganggu. Dengan adanya informasi seperti USER, %CPU, dan %MEM, pengguna dapat memahami bagaimana sistem mengalokasikan sumber daya untuk setiap proses.
 
