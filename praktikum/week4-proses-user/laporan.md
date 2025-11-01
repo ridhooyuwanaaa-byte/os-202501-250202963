@@ -109,7 +109,7 @@ Sertakan screenshot hasil percobaan atau diagram:
 ![Screenshot hasil](screenshots/Screenshotweek4_2.png)
 
 ---
-## EKSPERIMEN 1
+# EKSPERIMEN 1
 whoami → menampilkan nama user yang sedang login.
 Output: nopalalala
 ➜ Artinya user aktif saat ini bernama nopalalala.
@@ -131,7 +131,7 @@ sudo passwd praktikan → memberi/mengubah password user praktikan.
 User baru praktikan berhasil dibuat dan tergabung dalam grup users.
 
 ---
-## EKSPERIMEN 2
+# EKSPERIMEN 2
 
 # ps aux
 
@@ -169,7 +169,7 @@ MiB Mem/Swap: pemakaian memori dan swap.
  Kesimpulan Eksperimen 2:
 Perintah ps aux dan top digunakan untuk memantau proses dan sumber daya sistem secara rinci.
 
-## EKSPERIMEN 3
+# EKSPERIMEN 3
 
 # sleep 1000 & → Menjalankan perintah sleep di background selama 1000 detik.
 Tanda & berarti proses dijalankan di background (tidak menghalangi terminal).
@@ -185,7 +185,7 @@ Pada tangkapan layar kamu, PID-nya adalah 667.
 Kesimpulan Eksperimen 3:
 Kamu berhasil membuat proses sleep di background dan memverifikasi/menutupnya menggunakan ps dan kill.
 
-## EKSPERIMEN 4
+# EKSPERIMEN 4
 
 # pstree -p → Menampilkan pohon proses (process tree) lengkap dengan PID-nya.
 Menunjukkan hubungan induk–anak antar proses.
