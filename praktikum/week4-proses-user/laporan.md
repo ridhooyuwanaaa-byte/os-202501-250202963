@@ -211,11 +211,44 @@ systemd adalah proses induk dari semua proses di sistem Linux. Dengan pstree, ka
 
 ---
 ## TUGAS
+1. Dokumentasikan hasil semua perintah dan jelaskan fungsi tiap perintah.  
+2. Gambarkan hierarki proses dalam bentuk diagram pohon (`pstree`) di laporan.  
+3. Jelaskan hubungan antara user management dan keamanan sistem Linux.  
+4. Upload laporan ke repositori Git tepat waktu.
 
+Gambar hieraraki proses
+```bash
+systemd(1)
+├── agetty(170)
+├── cron(158)
+├── dbus-daemon(159)
+├── rsyslogd(188)
+├── systemd-journald(89)
+├── systemd-logind(126)
+├── systemd-resolved(116)
+├── systemd-timesyncd(114)
+├── systemd-udevd(99)
+├── unattended-upgr(243)
+├── wsl-pro-service(195)
+└── bash(477)
+     ├── sleep(540)
+     └── pstree(556)
+```
 
+**Hubungan antara User Management dan Keamanan Sistem Linux**
+Manajemen pengguna (user management) memiliki peran yang sangat penting dalam menjaga keamanan sistem operasi Linux. Dalam sistem Linux, setiap aktivitas dijalankan oleh user account tertentu dengan hak akses yang berbeda-beda. Pembagian hak akses inilah yang menjadi dasar dari sistem keamanan berbasis multi-user.
 
+Pembatasan Hak Akses (Privileges):
+Setiap user memiliki izin tertentu terhadap file, direktori, dan proses. Pengguna biasa (non-root) hanya bisa mengakses sumber daya miliknya sendiri, sedangkan user root memiliki hak penuh terhadap seluruh sistem. Dengan pembagian ini, kerusakan atau kesalahan pada satu user tidak akan memengaruhi keseluruhan sistem.
 
+Pengelolaan Grup dan Izin (Permissions):
+Linux menggunakan sistem user–group–others untuk mengatur siapa yang boleh membaca (r), menulis (w), dan menjalankan (x) suatu file. Administrator dapat menempatkan pengguna ke dalam grup tertentu agar memiliki akses kolektif terhadap sumber daya bersama. Hal ini mencegah akses tidak sah dan memperkuat keamanan data.
 
+Keamanan Melalui Autentikasi dan Logging:
+Sistem Linux menerapkan autentikasi dengan password terenkripsi dan mencatat aktivitas pengguna dalam log sistem (seperti /var/log/auth.log). Dengan begitu, setiap login, perintah sudo, atau perubahan sistem dapat dilacak, membantu administrator mendeteksi potensi pelanggaran keamanan.
+
+Isolasi Proses antar User:
+Kernel Linux memastikan bahwa proses milik satu user tidak dapat memodifikasi atau mengintip proses milik user lain tanpa izin. Isolasi ini melindungi stabilitas dan integritas sistem, terutama dalam lingkungan multi-user seperti server atau sistem kampus.
 
 ---
 ## Analisis
