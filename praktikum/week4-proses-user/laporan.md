@@ -125,7 +125,8 @@ Tuliskan potongan kode atau perintah utama:
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+<img width="1920" height="1080" alt="idoyy week 4 (2)" src="https://github.com/user-attachments/assets/929bdcd2-d250-4942-85b0-b0eea7e8457a" />
+<img width="824" height="977" alt="idoyy week 4" src="https://github.com/user-attachments/assets/ab7d3fa5-5d26-43df-8e63-3a3f2f58625a" />
 
 ---
 
