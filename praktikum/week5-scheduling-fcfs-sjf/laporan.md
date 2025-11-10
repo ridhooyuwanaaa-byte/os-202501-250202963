@@ -4,7 +4,7 @@ Topik:  Penjadwalan CPU – FCFS dan SJF
 ---
 
 ## Identitas
-- **Nama**  : Naufal Adib Bissibyan 
+- **Nama**  : Naufal Adib Bissibyan
 - **NIM**   : 250202958
 - **Kelas** : 1 IKR A
 
